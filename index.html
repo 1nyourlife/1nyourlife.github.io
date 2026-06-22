@@ -7,15 +7,19 @@
 <meta name="description" content="Zhipeng Liu — PhD candidate at the University of Exeter working on vision-language models and open-vocabulary detection for remote sensing and disaster monitoring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- icon fonts (loaded over CDN; fine in a browser) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 <style>
   :root {
     --bg: #FCFCFB;
     --ink: #1B2027;
-    --muted: #66707C;
-    --faint: #99A1AC;
+    --muted: #5C6671;
+    --faint: #98A0AB;
     --accent: #2F6F6A;
     --accent-soft: #EBF2F1;
+    --accent-line: #CFE0DD;
     --rule: #E7E7E2;
     --todo-bg: #FFF1CF;
     --todo-ink: #8A6A12;
@@ -23,331 +27,257 @@
     --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   }
-
   * { box-sizing: border-box; }
-
-  html { -webkit-text-size-adjust: 100%; }
-
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 15.5px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container {
+    max-width: 1060px; margin: 0 auto;
+    display: flex; gap: 52px; padding: 64px 32px 64px;
   }
 
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 72px 28px 56px;
-  }
-
-  a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s ease;
-  }
-  a:hover { border-bottom-color: var(--accent); }
-  a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-
-  /* ---------- Header ---------- */
-  .head {
-    display: flex;
-    gap: 26px;
-    align-items: center;
-    margin-bottom: 38px;
-  }
+  /* ---------------- Sidebar ---------------- */
+  .sidebar { flex: 0 0 232px; }
+  .sidebar-inner { position: sticky; top: 48px; }
   .avatar {
-    flex: 0 0 96px;
-    width: 96px;
-    height: 96px;
-    border-radius: 14px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--serif);
-    font-size: 2.1rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    overflow: hidden;
-    border: 1px solid var(--rule);
+    width: 168px; height: 168px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 3.4rem; font-weight: 500;
+    letter-spacing: 0.03em; overflow: hidden; border: 1px solid var(--rule);
+    margin: 0 auto 18px;
   }
   .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sb-name { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; line-height: 1.15; margin: 0 0 2px; text-align: center; }
+  .sb-name .cn { font-size: 0.62em; color: var(--faint); font-weight: 400; margin-left: 5px; }
+  .sb-blurb { color: var(--muted); font-size: 0.86rem; line-height: 1.5; text-align: center; margin: 8px 2px 18px; }
+  .contact { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; }
+  .contact li { display: flex; align-items: baseline; gap: 9px; padding: 4px 0; color: var(--muted); }
+  .contact li i { color: var(--accent); width: 16px; text-align: center; flex: 0 0 16px; font-size: 0.9rem; }
+  .contact li a { color: var(--muted); word-break: break-word; }
+  .contact li a:hover { color: var(--accent); }
 
-  .name {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(2.2rem, 5.5vw, 2.9rem);
-    line-height: 1.05;
-    margin: 0 0 6px;
-    letter-spacing: -0.01em;
-  }
-  .name .cn { font-size: 0.6em; color: var(--faint); font-weight: 400; margin-left: 8px; }
-  .role { color: var(--muted); font-size: 1.02rem; margin: 0; }
-
-  /* ---------- Link row ---------- */
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-    margin: 22px 0 0;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-  }
-  .links a { letter-spacing: -0.01em; }
-
-  /* ---------- Sections ---------- */
-  section { margin-top: 46px; }
+  /* ---------------- Main ---------------- */
+  .main { flex: 1; min-width: 0; }
+  .main > section { margin-bottom: 40px; }
+  .main > section:first-child { margin-top: 4px; }
   h2 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.35rem;
-    margin: 0 0 18px;
-    padding-bottom: 9px;
-    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans); font-weight: 700; font-size: 1.18rem;
+    margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent-line);
     letter-spacing: -0.01em;
   }
-
-  p { margin: 0 0 16px; }
+  h2 .emoji { margin-right: 7px; }
+  p { margin: 0 0 14px; }
   p:last-child { margin-bottom: 0; }
-  .lede { color: #2D343D; }
+  .lead-name { font-family: var(--serif); font-weight: 600; font-size: 2.3rem; line-height: 1.05; margin: 0 0 4px; letter-spacing: -0.015em; }
+  .lead-role { color: var(--muted); font-size: 1.02rem; margin: 0 0 22px; }
 
-  /* ---------- Interests ---------- */
-  .interests {
-    font-family: var(--mono);
-    font-size: 0.83rem;
-    color: var(--muted);
-    line-height: 1.9;
-  }
-  .interests b { color: var(--accent); font-weight: 500; }
+  /* News */
+  .news { list-style: none; padding: 0; margin: 0; }
+  .news li { display: flex; gap: 16px; padding: 6px 0; align-items: baseline; }
+  .news .date { flex: 0 0 74px; font-family: var(--mono); font-size: 0.76rem; color: var(--faint); padding-top: 1px; }
+  .news .txt { flex: 1; }
 
-  /* ---------- News ---------- */
-  .news-item {
-    display: flex;
-    gap: 18px;
-    padding: 7px 0;
-    align-items: baseline;
+  /* Publications */
+  .pub { display: flex; gap: 20px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .pub:first-of-type { border-top: none; padding-top: 4px; }
+  .thumb {
+    flex: 0 0 130px; height: 92px; border-radius: 8px;
+    background: var(--accent-soft); border: 1px solid var(--accent-line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 500; color: var(--accent);
+    text-align: center; padding: 6px; overflow: hidden; line-height: 1.3;
   }
-  .news-date {
-    flex: 0 0 84px;
-    font-family: var(--mono);
-    font-size: 0.76rem;
-    color: var(--faint);
-    padding-top: 1px;
-  }
-  .news-text { flex: 1; }
-
-  /* ---------- Publications ---------- */
-  .pub { padding: 16px 0; border-top: 1px solid var(--rule); }
-  .pub:first-of-type { border-top: none; }
-  .pub.feature {
-    border: 1px solid var(--rule);
-    border-left: 3px solid var(--accent);
-    background: var(--accent-soft);
-    border-radius: 0 8px 8px 0;
-    padding: 18px 20px;
-    margin-bottom: 4px;
-  }
-  .pub-tag {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: 7px;
-  }
-  .pub-title { font-weight: 600; font-size: 1.02rem; line-height: 1.4; margin-bottom: 4px; }
-  .pub-authors { color: var(--muted); font-size: 0.94rem; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; }
+  .pub-body { flex: 1; min-width: 0; }
+  .pub-venue { display: inline-block; font-family: var(--mono); font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 5px; }
+  .pub-title { font-weight: 600; font-size: 1rem; line-height: 1.35; margin: 0 0 4px; }
+  .pub-title a { color: var(--ink); }
+  .pub-title a:hover { color: var(--accent); }
+  .pub-authors { color: var(--muted); font-size: 0.9rem; margin-bottom: 6px; }
   .pub-authors b { color: var(--ink); font-weight: 600; }
-  .pub-venue { color: var(--muted); font-size: 0.94rem; font-style: italic; }
-  .pub-links { margin-top: 8px; font-family: var(--mono); font-size: 0.78rem; display: flex; gap: 16px; flex-wrap: wrap; }
+  .pub-notes { margin: 6px 0 0; padding-left: 1.1em; font-size: 0.9rem; color: var(--muted); }
+  .pub-notes li { margin: 2px 0; }
+  .badges { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .badges img { height: 19px; }
 
-  /* ---------- Education ---------- */
-  .edu { display: flex; gap: 18px; padding: 11px 0; align-items: baseline; }
-  .edu + .edu { border-top: 1px solid var(--rule); }
-  .edu-date {
-    flex: 0 0 118px;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--faint);
-    padding-top: 2px;
-  }
-  .edu-body { flex: 1; }
-  .edu-body .sub { color: var(--muted); font-size: 0.9rem; }
+  /* Generic dated lists */
+  .entries { list-style: none; padding: 0; margin: 0; }
+  .entries li { display: flex; gap: 16px; padding: 7px 0; align-items: baseline; }
+  .entries .date { flex: 0 0 116px; font-family: var(--mono); font-size: 0.78rem; color: var(--faint); padding-top: 1px; }
+  .entries .body { flex: 1; }
+  .entries .body .sub { color: var(--muted); font-size: 0.9rem; }
 
-  /* ---------- TODO marker ---------- */
-  .todo {
-    background: var(--todo-bg);
-    color: var(--todo-ink);
-    padding: 0 5px;
-    border-radius: 3px;
-    font-family: var(--mono);
-    font-size: 0.85em;
-    font-style: normal;
-    font-weight: 500;
-  }
+  .todo { background: var(--todo-bg); color: var(--todo-ink); padding: 0 5px; border-radius: 3px; font-family: var(--mono); font-size: 0.84em; font-weight: 500; }
 
-  /* ---------- Footer ---------- */
-  footer {
-    margin-top: 56px;
-    padding-top: 18px;
-    border-top: 1px solid var(--rule);
-    color: var(--faint);
-    font-family: var(--mono);
-    font-size: 0.74rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--faint); font-family: var(--mono); font-size: 0.74rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 
-  /* ---------- Responsive ---------- */
-  @media (max-width: 540px) {
-    .wrap { padding: 48px 20px 40px; }
-    .head { flex-direction: column; align-items: flex-start; gap: 18px; }
-    .news-item { flex-direction: column; gap: 1px; }
-    .news-date { flex-basis: auto; }
-    .edu { flex-direction: column; gap: 2px; }
-    .edu-date { flex-basis: auto; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+  /* ---------------- Responsive ---------------- */
+  @media (max-width: 800px) {
+    .container { flex-direction: column; gap: 34px; padding: 44px 22px; }
+    .sidebar { flex-basis: auto; }
+    .sidebar-inner { position: static; }
+    .avatar { width: 132px; height: 132px; font-size: 2.7rem; }
+    .contact { max-width: 320px; margin: 0 auto; }
+    .lead-name { font-size: 2rem; }
+    .pub { flex-direction: column; gap: 12px; }
+    .thumb { flex-basis: auto; width: 100%; height: 120px; }
+    .news li, .entries li { flex-direction: column; gap: 1px; }
+    .news .date, .entries .date { flex-basis: auto; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="container">
 
-  <header class="head">
-    <!-- To use a real photo: replace this whole .avatar block with
-         <div class="avatar"><img src="photo.jpg" alt="Zhipeng Liu"></div>
-         and add photo.jpg to the repo. -->
-    <div class="avatar">ZL</div>
-    <div>
-      <h1 class="name">Zhipeng Liu<span class="cn">刘志鹏</span></h1>
-      <p class="role">PhD Candidate, Department of Computer Science, University of Exeter</p>
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <!-- To use a real photo: replace this .avatar block with
+           <div class="avatar"><img src="photo.jpg" alt="Zhipeng Liu"></div>
+           and add photo.jpg to the repo. -->
+      <div class="avatar">ZL</div>
+      <h1 class="sb-name">Zhipeng Liu<span class="cn">刘志鹏</span></h1>
+      <p class="sb-blurb">Vision-language models &amp; open-vocabulary detection for remote sensing and disaster monitoring.</p>
+      <ul class="contact">
+        <li><i class="fa-solid fa-location-dot"></i> <span>Exeter, United Kingdom</span></li>
+        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:zl481@exeter.ac.uk">zl481@exeter.ac.uk</a></li>
+        <li><i class="fa-brands fa-github"></i> <a href="https://github.com/1nyourlife">github.com/1nyourlife</a></li>
+        <li><i class="ai ai-google-scholar"></i> <a href="https://scholar.google.com/citations?user=_c2PNLcAAAAJ">Google Scholar</a></li>
+        <li><i class="fa-solid fa-file-lines"></i> <a href="cv.pdf">Curriculum Vitae</a></li>
+      </ul>
     </div>
-  </header>
+  </aside>
 
-  <nav class="links">
-    <a href="mailto:zl481@exeter.ac.uk">zl481@exeter.ac.uk</a>
-    <a href="https://scholar.google.com/citations?hl=en&user=_c2PNLcAAAAJ">Google Scholar</a>
-    <a href="https://github.com/1nyourlife">GitHub</a>
-    <a href="cv.pdf">CV</a>
-  </nav>
+  <!-- ==================== MAIN ==================== -->
+  <main class="main">
 
-  <section id="about">
-    <p class="lede">I am a final-year PhD candidate in Computer Science at the University of Exeter, advised by Chunbo Luo. I work on vision-language models and open-vocabulary detection for remote sensing and disaster monitoring. My research studies how detectors behave under distribution shift, when the test setting differs from training in viewpoint, vocabulary, or hazard type, and designs methods that keep vision-language detectors reliable across these gaps. Recent projects cover cross-view geometry and cross-vocabulary generalization, including mechanistic analysis of where fine-tuned detectors fail.</p>
-  </section>
+    <section id="about">
+      <div class="lead-name">Zhipeng Liu</div>
+      <div class="lead-role">PhD Candidate, Department of Computer Science, University of Exeter</div>
+      <p>I am a final-year PhD candidate in Computer Science at the University of Exeter, advised by Chunbo Luo. I work on vision-language models and open-vocabulary detection for remote sensing and disaster monitoring. My research studies how object detectors behave under distribution shift, when the test setting differs from training in viewpoint, vocabulary, or hazard type, and designs methods that keep vision-language detectors reliable across these gaps. Recent projects cover cross-view geometry and cross-vocabulary generalization, including mechanistic analysis of where fine-tuned detectors fail.</p>
+    </section>
 
-  <section id="interests">
-    <h2>Research Interests</h2>
-    <p class="interests">
-      <b>Vision-Language Models</b> &nbsp;·&nbsp; <b>Open-Vocabulary Detection</b> &nbsp;·&nbsp; <b>Remote Sensing</b> &nbsp;·&nbsp; <b>Disaster Monitoring</b> &nbsp;·&nbsp; <b>Distribution Shift</b> &nbsp;·&nbsp; <b>Model Interpretability</b>
-    </p>
-  </section>
+    <section id="news">
+      <h2><span class="emoji">🔥</span>News</h2>
+      <ul class="news">
+        <li><span class="date">2026.06</span><span class="txt">Flash talk and poster at <strong>ML4EO 2026</strong>, University of Exeter (Paper ID 46).</span></li>
+        <li><span class="date">2026</span><span class="txt">Our paper <strong>CrossVL</strong> was accepted to <strong>CVPR 2026</strong>.</span></li>
+        <li><span class="date">2024.07</span><span class="txt">Presented <strong>DisasterScope</strong> as an oral at <strong>IGARSS 2024</strong> (Athens), and served as Session Co-Chair.</span></li>
+        <li><span class="date">2022</span><span class="txt">Began my PhD in Computer Science at the University of Exeter, funded by the China Scholarship Council (CSC).</span></li>
+        <!-- Add more milestones here as they happen. -->
+      </ul>
+    </section>
 
-  <section id="news">
-    <h2>News</h2>
-    <div class="news-item">
-      <span class="news-date">Jun 2026</span>
-      <span class="news-text">Flash talk and poster at <strong>ML4EO 2026</strong>, University of Exeter (Paper&nbsp;ID&nbsp;46).</span>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2026</span>
-      <span class="news-text"><strong>CrossVL</strong> accepted to CVPR&nbsp;2026.</span>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2022</span>
-      <span class="news-text">Began PhD in Computer Science at the University of Exeter, funded by the China Scholarship Council.</span>
-    </div>
-    <!-- Add more milestones here as needed. -->
-  </section>
+    <section id="publications">
+      <h2><span class="emoji">📝</span>Publications</h2>
+      <p style="font-size:0.86rem;color:var(--muted);margin-bottom:10px;">Author names in <b style="color:var(--ink)">bold</b> indicate me.</p>
 
-  <section id="publications">
-    <h2>Publications</h2>
-
-    <div class="pub feature">
-      <span class="pub-tag">CVPR 2026</span>
-      <div class="pub-title">CrossVL: Complexity-Aware Feature Routing and Paired Curriculum for Cross-View Vision-Language Detection</div>
-      <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo</div>
-      <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</div>
-      <div class="pub-links">
-        <a href="https://arxiv.org/abs/2605.09802">arXiv</a>
-        <a href="https://github.com/1nyourlife/CrossVL">Code</a>
+      <!-- CrossVL -->
+      <div class="pub">
+        <!-- swap the placeholder for a figure: <img src="images/crossvl.png" alt="CrossVL"> -->
+        <div class="thumb">CVPR 2026</div>
+        <div class="pub-body">
+          <span class="pub-venue">CVPR 2026</span>
+          <div class="pub-title"><a href="https://arxiv.org/abs/2605.09802">CrossVL: Complexity-Aware Feature Routing and Paired Curriculum for Cross-View Vision-Language Detection</a></div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo</div>
+          <ul class="pub-notes">
+            <li>A cross-view vision-language detector with complexity-aware feature routing and paired curriculum learning.</li>
+          </ul>
+          <div class="badges">
+            <a href="https://arxiv.org/abs/2605.09802"><img src="https://img.shields.io/badge/arXiv-2605.09802-b31b1b" alt="arXiv"></a>
+            <a href="https://github.com/1nyourlife/CrossVL"><img src="https://img.shields.io/github/stars/1nyourlife/CrossVL?style=social" alt="GitHub stars"></a>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="pub">
-      <div class="pub-title"><span class="todo">TODO: exact title</span> — disaster monitoring with convolutional detectors</div>
-      <div class="pub-authors"><b>Zhipeng Liu</b>, <span class="todo">co-authors</span></div>
-      <div class="pub-venue">IEEE International Geoscience and Remote Sensing Symposium (IGARSS), <span class="todo">year</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-title"><span class="todo">TODO: exact title</span> — survey on disaster monitoring (cross-hazard generalization and interpretability)</div>
-      <div class="pub-authors"><b>Zhipeng Liu</b>, <span class="todo">co-authors</span></div>
-      <div class="pub-venue"><span class="todo">venue</span>, <span class="todo">year</span></div>
-    </div>
-  </section>
-
-  <section id="preprints">
-    <h2>In Preparation</h2>
-    <!-- Trim or keep these as you like. -->
-
-    <div class="pub">
-      <div class="pub-title"><span class="todo">TODO: VocLock title</span></div>
-      <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo</div>
-      <div class="pub-venue">In preparation. Diagnosing vocabulary lock-in in fine-tuned open-vocabulary detectors for disaster building-damage assessment; proposes DISFT and an Embedding Bridge. Targeting IEEE TGRS.</div>
-    </div>
-
-    <div class="pub">
-      <div class="pub-title">The Readout Is the Roadblock <span class="todo">(working title — confirm)</span></div>
-      <div class="pub-authors"><b>Zhipeng Liu</b>, <span class="todo">co-authors</span></div>
-      <div class="pub-venue">In preparation. Fine-grained attribute failure in open-vocabulary detectors, corrected via a rank-4 bilinear adapter, with the LOCO held-out-attribute protocol.</div>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <div class="edu">
-      <span class="edu-date">2022 – present</span>
-      <div class="edu-body">
-        <strong>Ph.D., Computer Science</strong>, University of Exeter<br>
-        <span class="sub">Advisor: Chunbo Luo</span>
+      <!-- DisasterScope -->
+      <div class="pub">
+        <div class="thumb">IGARSS 2024<br>Oral</div>
+        <div class="pub-body">
+          <span class="pub-venue">IGARSS 2024 · Oral</span>
+          <div class="pub-title">DisasterScope: A Comprehensive Dataset and RTMDet-based Methodology for Object Detection in Disaster-Related Remote Sensing Images</div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min, Zishu Liu, Zhuhui Li</div>
+          <ul class="pub-notes">
+            <li>A comprehensive disaster-imagery detection dataset paired with an RTMDet-based methodology.</li>
+            <li>Oral presentation; I also served as Session Co-Chair for the session.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="edu">
-      <span class="edu-date">2021 – 2022</span>
-      <div class="edu-body">
-        <strong>M.Sc., Advanced Computer Science</strong>, University of Exeter
-      </div>
-    </div>
-    <div class="edu">
-      <span class="edu-date">2016 – 2020</span>
-      <div class="edu-body">
-        <strong>B.Eng., Software Engineering</strong>, Harbin Institute of Technology, Weihai
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <span>© 2026 Zhipeng Liu</span>
-    <span>Last updated June 2026</span>
-  </footer>
+    <section id="preprints">
+      <h2><span class="emoji">📄</span>Preprints &amp; In Preparation</h2>
 
+      <div class="pub">
+        <div class="thumb">In prep<br>TGRS</div>
+        <div class="pub-body">
+          <span class="pub-venue">In Preparation · Target: IEEE TGRS</span>
+          <div class="pub-title"><span class="todo">VocLock — title TBD</span></div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo</div>
+          <ul class="pub-notes">
+            <li>Diagnoses vocabulary lock-in in fine-tuned open-vocabulary detectors for disaster building-damage assessment; proposes a training-time method (DISFT) and an inference-time Embedding Bridge.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb">In prep</div>
+        <div class="pub-body">
+          <span class="pub-venue">In Preparation</span>
+          <div class="pub-title">The Readout Is the Roadblock <span class="todo">(working title)</span></div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, <span class="todo">co-authors</span></div>
+          <ul class="pub-notes">
+            <li>Attributes fine-grained attribute failure in open-vocabulary detectors to the region-text cosine readout; corrects it with a rank-4 bilinear adapter under the LOCO held-out-attribute protocol.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors">
+      <h2><span class="emoji">🎖️</span>Honors &amp; Awards</h2>
+      <ul class="entries">
+        <li><span class="date">2022 – 2026</span><span class="body">China Scholarship Council (CSC) Scholarship</span></li>
+        <!-- <li><span class="date">YYYY</span><span class="body">Add more awards here</span></li> -->
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2><span class="emoji">📖</span>Education</h2>
+      <ul class="entries">
+        <li><span class="date">2022 – present</span><span class="body"><strong>Ph.D. in Computer Science</strong>, University of Exeter<br><span class="sub">Advisor: Chunbo Luo</span></span></li>
+        <li><span class="date">2021 – 2022</span><span class="body"><strong>M.Sc. in Advanced Computer Science</strong>, University of Exeter<br><span class="sub">Distinction</span></span></li>
+        <li><span class="date">2016 – 2020</span><span class="body"><strong>B.Eng. in Software Engineering</strong>, Harbin Institute of Technology, Weihai</span></li>
+      </ul>
+    </section>
+
+    <section id="talks">
+      <h2><span class="emoji">💬</span>Invited Talks &amp; Presentations</h2>
+      <ul class="entries">
+        <li><span class="date">2026.06</span><span class="body">Flash talk &amp; poster, <em>VocLock</em>, ML4EO 2026, University of Exeter</span></li>
+        <li><span class="date">2024.07</span><span class="body">Oral presentation, <em>DisasterScope</em>, IEEE IGARSS 2024, Athens, Greece</span></li>
+      </ul>
+    </section>
+
+    <section id="service">
+      <h2><span class="emoji">🤝</span>Academic Service</h2>
+      <ul class="entries">
+        <li><span class="date">2024</span><span class="body">Session Co-Chair, &ldquo;Object Detection and Recognition VIII&rdquo; (TU1.R1), IEEE IGARSS 2024, Athens, Greece</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      <span>© 2026 Zhipeng Liu</span>
+      <span>Last updated June 2026</span>
+    </footer>
+
+  </main>
 </div>
 </body>
 </html>
