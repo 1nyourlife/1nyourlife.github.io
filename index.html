@@ -87,6 +87,7 @@
   /* Publications */
   .pub { display: flex; gap: 20px; padding: 18px 0; border-top: 1px solid var(--rule); }
   .pub:first-of-type { border-top: none; padding-top: 4px; }
+  /* .thumb is unused right now; kept so figures can be dropped back in later. */
   .thumb {
     flex: 0 0 130px; height: 92px; border-radius: 8px;
     background: var(--accent-soft); border: 1px solid var(--accent-line);
@@ -106,6 +107,8 @@
   .pub-notes li { margin: 2px 0; }
   .badges { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   .badges img { height: 19px; }
+  .badge-flat { display: inline-block; font-family: var(--mono); font-size: 0.68rem; font-weight: 500; padding: 2px 7px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); }
+  .badge-flat:hover { text-decoration: none; background: var(--accent); color: #fff; }
 
   /* Generic dated lists */
   .entries { list-style: none; padding: 0; margin: 0; }
@@ -127,7 +130,8 @@
     .contact { max-width: 320px; margin: 0 auto; }
     .lead-name { font-size: 2rem; }
     .pub { flex-direction: column; gap: 12px; }
-    .thumb { flex-basis: auto; width: 100%; height: 120px; }
+    /* .thumb is unused right now; kept so figures can be dropped back in later. */
+  .thumb { flex-basis: auto; width: 100%; height: 120px; }
     .news li, .entries li { flex-direction: column; gap: 1px; }
     .news .date, .entries .date { flex-basis: auto; }
   }
@@ -149,7 +153,7 @@
         <li><i class="fa-solid fa-location-dot"></i> <span>Exeter, United Kingdom</span></li>
         <li><i class="fa-solid fa-envelope"></i> <a href="mailto:zl481@exeter.ac.uk">zl481@exeter.ac.uk</a></li>
         <li><i class="fa-brands fa-github"></i> <a href="https://github.com/1nyourlife">github.com/1nyourlife</a></li>
-        <li><i class="ai ai-google-scholar"></i> <a href="https://scholar.google.com/citations?user=_c2PNLcAAAAJ">Google Scholar</a></li>
+        <li><i class="ai ai-google-scholar"></i> <a href="https://scholar.google.com/citations?user=_c2PNLcAAAAJ&amp;hl=en">Google Scholar</a></li>
         <li><i class="fa-solid fa-file-lines"></i> <a href="cv.pdf">Curriculum Vitae</a></li>
       </ul>
     </div>
@@ -161,16 +165,19 @@
     <section id="about">
       <div class="lead-name">Zhipeng Liu</div>
       <div class="lead-role">PhD Candidate, Department of Computer Science, University of Exeter</div>
-      <p>I am a final-year PhD candidate in Computer Science at the University of Exeter, advised by Chunbo Luo. I work on vision-language models and open-vocabulary detection for remote sensing and disaster monitoring. My research studies how object detectors behave under distribution shift, when the test setting differs from training in viewpoint, vocabulary, or hazard type, and designs methods that keep vision-language detectors reliable across these gaps. Recent projects cover cross-view geometry and cross-vocabulary generalization, including mechanistic analysis of where fine-tuned detectors fail.</p>
+      <p>I am a final-year PhD candidate in Computer Science at the University of Exeter, advised by Chunbo Luo and co-advised by Geyong Min. I work on vision-language models and open-vocabulary detection for remote sensing and disaster monitoring.</p>
+      <p>My thesis asks how object detectors fail once they leave the conditions they were trained on, and studies four axes of that gap: unseen data distributions, unseen viewpoints, unseen label vocabularies, and unseen levels of label granularity. Across these axes I build diagnostic protocols that isolate where a detector breaks, then design targeted remedies, with a recurring finding that the visual evidence is often present in the representation but inaccessible at the readout interface.</p>
     </section>
 
     <section id="news">
       <h2><span class="emoji">🔥</span>News</h2>
       <ul class="news">
+        <li><span class="date">2026.06</span><span class="txt">Presented <strong>CrossVL</strong> as a virtual poster at <strong>CVPR 2026</strong>; code and paper are now public.</span></li>
         <li><span class="date">2026.06</span><span class="txt">Flash talk and poster at <strong>ML4EO 2026</strong>, University of Exeter (Paper ID 46).</span></li>
-        <li><span class="date">2026</span><span class="txt">Our paper <strong>CrossVL</strong> was accepted to <strong>CVPR 2026</strong>.</span></li>
+        <li><span class="date">2026.02</span><span class="txt">Our paper <strong>CrossVL</strong> was accepted to <strong>CVPR 2026</strong>.</span></li>
         <li><span class="date">2024.07</span><span class="txt">Presented <strong>DisasterScope</strong> as an oral at <strong>IGARSS 2024</strong> (Athens), and served as Session Co-Chair.</span></li>
-        <li><span class="date">2022</span><span class="txt">Began my PhD in Computer Science at the University of Exeter, funded by the China Scholarship Council (CSC).</span></li>
+        <li><span class="date">2024.06</span><span class="txt">Oral presentation at <strong>ML4EO 2024</strong>, University of Exeter.</span></li>
+        <li><span class="date">2022.09</span><span class="txt">Began my PhD in Computer Science at the University of Exeter, funded by the China Scholarship Council (CSC).</span></li>
         <!-- Add more milestones here as they happen. -->
       </ul>
     </section>
@@ -182,24 +189,24 @@
       <!-- CrossVL -->
       <div class="pub">
         <!-- swap the placeholder for a figure: <img src="images/crossvl.png" alt="CrossVL"> -->
-        <div class="thumb">CVPR 2026</div>
         <div class="pub-body">
           <span class="pub-venue">CVPR 2026</span>
-          <div class="pub-title"><a href="https://arxiv.org/abs/2605.09802">CrossVL: Complexity-Aware Feature Routing and Paired Curriculum for Cross-View Vision-Language Detection</a></div>
+          <div class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_CrossVL_Complexity-Aware_Feature_Routing_and_Paired_Curriculum_for_Cross-View_Vision-Language_CVPR_2026_paper.pdf">CrossVL: Complexity-Aware Feature Routing and Paired Curriculum for Cross-View Vision-Language Detection</a></div>
           <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo</div>
           <ul class="pub-notes">
-            <li>A cross-view vision-language detector with complexity-aware feature routing and paired curriculum learning.</li>
+            <li>Complexity-Aware Pathway Aggregation routes visual features through view-specific pathways; Paired Curriculum Learning exploits synchronized ground-aerial pairs for stable early supervision.</li>
+            <li>Raises Florence-2 aerial mAP on MAVREC from 58.66 to 61.03, narrows the ground-aerial gap from 8.63 to 6.65 points, and cuts across-seed variance by 3.3x.</li>
           </ul>
           <div class="badges">
+            <a class="badge-flat" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_CrossVL_Complexity-Aware_Feature_Routing_and_Paired_Curriculum_for_Cross-View_Vision-Language_CVPR_2026_paper.pdf">CVF PDF</a>
             <a href="https://arxiv.org/abs/2605.09802"><img src="https://img.shields.io/badge/arXiv-2605.09802-b31b1b" alt="arXiv"></a>
-            <a href="https://github.com/1nyourlife/CrossVL"><img src="https://img.shields.io/github/stars/1nyourlife/CrossVL?style=social" alt="GitHub stars"></a>
+            <a href="https://github.com/1nyourlife/Crossvl_cvpr2026"><img src="https://img.shields.io/github/stars/1nyourlife/Crossvl_cvpr2026?style=social" alt="GitHub stars"></a>
           </div>
         </div>
       </div>
 
       <!-- DisasterScope -->
       <div class="pub">
-        <div class="thumb">IGARSS 2024<br>Oral</div>
         <div class="pub-body">
           <span class="pub-venue">IGARSS 2024 · Oral</span>
           <div class="pub-title">DisasterScope: A Comprehensive Dataset and RTMDet-based Methodology for Object Detection in Disaster-Related Remote Sensing Images</div>
@@ -213,28 +220,38 @@
     </section>
 
     <section id="preprints">
-      <h2><span class="emoji">📄</span>Preprints &amp; In Preparation</h2>
+      <h2><span class="emoji">📄</span>Manuscripts Under Review</h2>
 
       <div class="pub">
-        <div class="thumb">In prep<br>TGRS</div>
         <div class="pub-body">
-          <span class="pub-venue">In Preparation · Target: IEEE TGRS</span>
-          <div class="pub-title"><span class="todo">VocLock — title TBD</span></div>
-          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo</div>
+          <span class="pub-venue">Under review · IEEE TGRS</span>
+          <div class="pub-title">Vocabulary Lock-in in Remote-Sensing Open-Vocabulary Detectors for Cross-Taxonomy Disaster Damage Assessment</div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
           <ul class="pub-notes">
-            <li>Diagnoses vocabulary lock-in in fine-tuned open-vocabulary detectors for disaster building-damage assessment; proposes a training-time method (DISFT) and an inference-time Embedding Bridge.</li>
+            <li>Quantifies vocabulary lock-in in fine-tuned open-vocabulary detectors for disaster building-damage assessment, and localizes it to cross-attention activation patterns rather than weight drift.</li>
+            <li>Proposes a training-time method (DISFT) and an inference-time Embedding Bridge.</li>
           </ul>
         </div>
       </div>
 
       <div class="pub">
-        <div class="thumb">In prep</div>
         <div class="pub-body">
-          <span class="pub-venue">In Preparation</span>
-          <div class="pub-title">The Readout Is the Roadblock <span class="todo">(working title)</span></div>
-          <div class="pub-authors"><b>Zhipeng Liu</b>, <span class="todo">co-authors</span></div>
+          <span class="pub-venue">Under review</span>
+          <div class="pub-title">Chance Is Not Zero: The Effective Chance Level of Visual Grounding Benchmarks</div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
           <ul class="pub-notes">
-            <li>Attributes fine-grained attribute failure in open-vocabulary detectors to the region-text cosine readout; corrects it with a rank-4 bilinear adapter under the LOCO held-out-attribute protocol.</li>
+            <li>A pixel-free blind prior ladder showing that reported accuracy on remote-sensing visual grounding benchmarks is substantially inflated by language-only shortcuts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-body">
+          <span class="pub-venue">Under review</span>
+          <div class="pub-title">Is Fine-Grained Open-Vocabulary Detection a Low-Rank Readout Problem?</div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
+          <ul class="pub-notes">
+            <li>Attributes fine-grained attribute failure in open-vocabulary detectors to the region-text cosine readout rather than to the learned representation; corrects it with a low-rank bilinear adapter under a held-out-attribute protocol.</li>
           </ul>
         </div>
       </div>
@@ -243,7 +260,7 @@
     <section id="honors">
       <h2><span class="emoji">🎖️</span>Honors &amp; Awards</h2>
       <ul class="entries">
-        <li><span class="date">2022 – 2026</span><span class="body">China Scholarship Council (CSC) Scholarship</span></li>
+        <li><span class="date">2022 – 2026</span><span class="body">China Scholarship Council (CSC) – University of Exeter Joint Scholarship</span></li>
         <!-- <li><span class="date">YYYY</span><span class="body">Add more awards here</span></li> -->
       </ul>
     </section>
@@ -251,7 +268,7 @@
     <section id="education">
       <h2><span class="emoji">📖</span>Education</h2>
       <ul class="entries">
-        <li><span class="date">2022 – present</span><span class="body"><strong>Ph.D. in Computer Science</strong>, University of Exeter<br><span class="sub">Advisor: Chunbo Luo</span></span></li>
+        <li><span class="date">2022 – present</span><span class="body"><strong>Ph.D. in Computer Science</strong>, University of Exeter<br><span class="sub">Thesis: <em>Open-World Generalization of Object Detectors: New Data, New Views, New Vocabulary, and New Granularity in Aerial Imagery</em><br>Advisors: Chunbo Luo, Geyong Min</span></span></li>
         <li><span class="date">2021 – 2022</span><span class="body"><strong>M.Sc. in Advanced Computer Science</strong>, University of Exeter<br><span class="sub">Distinction</span></span></li>
         <li><span class="date">2016 – 2020</span><span class="body"><strong>B.Eng. in Software Engineering</strong>, Harbin Institute of Technology, Weihai</span></li>
       </ul>
@@ -260,8 +277,10 @@
     <section id="talks">
       <h2><span class="emoji">💬</span>Invited Talks &amp; Presentations</h2>
       <ul class="entries">
+        <li><span class="date">2026.06</span><span class="body">Poster presentation, <em>CrossVL</em>, IEEE/CVF CVPR 2026, virtual</span></li>
         <li><span class="date">2026.06</span><span class="body">Flash talk &amp; poster, <em>VocLock</em>, ML4EO 2026, University of Exeter</span></li>
         <li><span class="date">2024.07</span><span class="body">Oral presentation, <em>DisasterScope</em>, IEEE IGARSS 2024, Athens, Greece</span></li>
+        <li><span class="date">2024.06</span><span class="body">Oral presentation, <em>DisasterScope</em>, ML4EO 2024, University of Exeter</span></li>
       </ul>
     </section>
 
@@ -274,7 +293,7 @@
 
     <footer>
       <span>© 2026 Zhipeng Liu</span>
-      <span>Last updated June 2026</span>
+      <span>Last updated August 2026</span>
     </footer>
 
   </main>
