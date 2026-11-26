@@ -172,6 +172,7 @@
     <section id="news">
       <h2><span class="emoji">🔥</span>News</h2>
       <ul class="news">
+        <li><span class="date">2026.11</span><span class="txt">Our paper on <strong>vocabulary lock-in</strong> in open-vocabulary detectors was accepted to <strong>IEEE TGRS</strong>.</span></li>
         <li><span class="date">2026.06</span><span class="txt">Presented <strong>CrossVL</strong> as a virtual poster at <strong>CVPR 2026</strong>; code and paper are now public.</span></li>
         <li><span class="date">2026.06</span><span class="txt">Flash talk and poster at <strong>ML4EO 2026</strong>, University of Exeter (Paper ID 46).</span></li>
         <li><span class="date">2026.02</span><span class="txt">Our paper <strong>CrossVL</strong> was accepted to <strong>CVPR 2026</strong>.</span></li>
@@ -200,8 +201,21 @@
           <div class="badges">
             <a class="badge-flat" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_CrossVL_Complexity-Aware_Feature_Routing_and_Paired_Curriculum_for_Cross-View_Vision-Language_CVPR_2026_paper.pdf">CVF PDF</a>
             <a href="https://arxiv.org/abs/2605.09802"><img src="https://img.shields.io/badge/arXiv-2605.09802-b31b1b" alt="arXiv"></a>
-            <a href="https://github.com/1nyourlife/Crossvl_cvpr2026"><img src="https://img.shields.io/github/stars/1nyourlife/Crossvl_cvpr2026?style=social" alt="GitHub stars"></a>
+            <a href="https://github.com/1nyourlife/CrossVL"><img src="https://img.shields.io/github/stars/1nyourlife/CrossVL?style=social" alt="GitHub stars"></a>
           </div>
+        </div>
+      </div>
+
+      <!-- VocLock -->
+      <div class="pub">
+        <div class="pub-body">
+          <span class="pub-venue">IEEE TGRS 2026</span>
+          <div class="pub-title">Vocabulary Lock-in in Remote-Sensing Open-Vocabulary Detectors for Cross-Taxonomy Disaster Damage Assessment</div>
+          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
+          <ul class="pub-notes">
+            <li>Identifies vocabulary lock-in: a fine-tuned detector loses access to a learned damage class when its label is replaced by a synonym (mean 26.5% mAP@50 drop on FloodNet across five seeds), and localizes it to activation-level access rather than weight drift.</li>
+            <li>Proposes Embedding Bridge, a training-free method that restores access without changing model weights (+6.8% mAP on FloodNet with Grounding DINO).</li>
+          </ul>
         </div>
       </div>
 
@@ -217,6 +231,18 @@
           </ul>
         </div>
       </div>
+
+      <!-- Neurocomputing -->
+      <div class="pub">
+        <div class="pub-body">
+          <span class="pub-venue">Neurocomputing 2026</span>
+          <div class="pub-title"><a href="https://arxiv.org/abs/2603.00604">Data-Centric Benchmark for Label Noise Estimation and Ranking in Remote Sensing Binary Building Segmentation</a></div>
+          <div class="pub-authors">Keiller Nogueira, Codruț-Andrei Diaconu, Dávid Kerekes, Jakob Gawlikowski, Cédric Léonard, Nassim Ait Ali Braham, June Moh Goo, Zichao Zeng, <b>Zhipeng Liu</b>, Pallavi Jain, Andrea Nascetti, Ronny Hänsch</div>
+          <ul class="pub-notes">
+            <li>Reframes label noise in segmentation as ranking images by how strongly pixel-wise label errors affect them, with a public binary building segmentation dataset.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="preprints">
@@ -224,12 +250,11 @@
 
       <div class="pub">
         <div class="pub-body">
-          <span class="pub-venue">Under review · IEEE TGRS</span>
-          <div class="pub-title">Vocabulary Lock-in in Remote-Sensing Open-Vocabulary Detectors for Cross-Taxonomy Disaster Damage Assessment</div>
+          <span class="pub-venue">Under review</span>
+          <div class="pub-title">CHANCE: An Image-Blind Audit of Visual Grounding Benchmarks</div>
           <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
           <ul class="pub-notes">
-            <li>Quantifies vocabulary lock-in in fine-tuned open-vocabulary detectors for disaster building-damage assessment, and localizes it to cross-attention activation patterns rather than weight drift.</li>
-            <li>Proposes a training-time method (DISFT) and an inference-time Embedding Bridge.</li>
+            <li>Audits how much visual grounding accuracy can be obtained without image pixels, and shows that subsets filtered with one blind predictor can remain predictable by another.</li>
           </ul>
         </div>
       </div>
@@ -237,21 +262,10 @@
       <div class="pub">
         <div class="pub-body">
           <span class="pub-venue">Under review</span>
-          <div class="pub-title">Chance Is Not Zero: The Effective Chance Level of Visual Grounding Benchmarks</div>
+          <div class="pub-title">AttrVL: Vision-Language Adaptation for Attribute Reading in Fine-Grained Open-Vocabulary Detection</div>
           <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
           <ul class="pub-notes">
-            <li>A pixel-free blind prior ladder showing that reported accuracy on remote-sensing visual grounding benchmarks is substantially inflated by language-only shortcuts.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="pub-body">
-          <span class="pub-venue">Under review</span>
-          <div class="pub-title">Is Fine-Grained Open-Vocabulary Detection a Low-Rank Readout Problem?</div>
-          <div class="pub-authors"><b>Zhipeng Liu</b>, Chunbo Luo, Geyong Min</div>
-          <ul class="pub-notes">
-            <li>Attributes fine-grained attribute failure in open-vocabulary detectors to the region-text cosine readout rather than to the learned representation; corrects it with a low-rank bilinear adapter under a held-out-attribute protocol.</li>
+            <li>Measures attribute reading separately from localization with a same-category pair test, and adapts the image encoder so that detectors read attributes such as color and material more reliably.</li>
           </ul>
         </div>
       </div>
@@ -268,7 +282,7 @@
     <section id="education">
       <h2><span class="emoji">📖</span>Education</h2>
       <ul class="entries">
-        <li><span class="date">2022 – present</span><span class="body"><strong>Ph.D. in Computer Science</strong>, University of Exeter<br><span class="sub">Thesis: <em>Open-World Generalization of Object Detectors: New Data, New Views, New Vocabulary, and New Granularity in Aerial Imagery</em><br>Advisors: Chunbo Luo, Geyong Min</span></span></li>
+        <li><span class="date">2022 – 2026</span><span class="body"><strong>Ph.D. in Computer Science</strong>, University of Exeter<br><span class="sub">Thesis: <em>Open-World Generalization of Object Detectors in Aerial Imagery</em><br>Advisors: Chunbo Luo, Geyong Min</span></span></li>
         <li><span class="date">2021 – 2022</span><span class="body"><strong>M.Sc. in Advanced Computer Science</strong>, University of Exeter<br><span class="sub">Distinction</span></span></li>
         <li><span class="date">2016 – 2020</span><span class="body"><strong>B.Eng. in Software Engineering</strong>, Harbin Institute of Technology, Weihai</span></li>
       </ul>
@@ -287,13 +301,15 @@
     <section id="service">
       <h2><span class="emoji">🤝</span>Academic Service</h2>
       <ul class="entries">
+        <li><span class="date">2027</span><span class="body">Reviewer, IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</span></li>
+        <li><span class="date">2025</span><span class="body">Reviewer, SCIENCE CHINA Information Sciences</span></li>
         <li><span class="date">2024</span><span class="body">Session Co-Chair, &ldquo;Object Detection and Recognition VIII&rdquo; (TU1.R1), IEEE IGARSS 2024, Athens, Greece</span></li>
       </ul>
     </section>
 
     <footer>
       <span>© 2026 Zhipeng Liu</span>
-      <span>Last updated August 2026</span>
+      <span>Last updated November 2026</span>
     </footer>
 
   </main>
